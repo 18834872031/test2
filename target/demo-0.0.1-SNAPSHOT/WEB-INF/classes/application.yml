@@ -1,0 +1,42 @@
+server:
+  port: 8081
+mybatis:
+  typeAliasesPackage: com.example.demo.entity
+  mapperLocations: classpath:mapper/*.xml
+
+spring:
+  mvc:
+    static-locations: /static/**
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/yidong
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+#logging:
+#  level:
+#    mapper: debug
+#    com.example.demo.mapper: debug #打印sql
+    #logback配置
+#logging:
+#  config: classpath:log4j2.yml
+
+#  freemarker:
+#    allow-request-override: false
+#    cache: true
+#    check-template-location: true
+#    charset: UTF-8
+#    suffix: .ftl
+#    templateEncoding: UTF-8
+#    templateLoaderPath: classpath:/templates
+#    content-type: text/html
+#    expose-request-attributes: true
+#    expose-session-attributes: false
+#    expose-spring-macro-helpers: false
+
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+

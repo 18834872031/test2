@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Zhun_ke_hu_zi_liaoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Zhun_ke_hu_zi_liao" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="huhao" property="huhao" jdbcType="VARCHAR" />
+    <result column="xingji" property="xingji" jdbcType="VARCHAR" />
+    <result column="yixiang" property="yixiang" jdbcType="VARCHAR" />
+    <result column="leixing" property="leixing" jdbcType="VARCHAR" />
+    <result column="hangye" property="hangye" jdbcType="VARCHAR" />
+    <result column="xingzi" property="xingzi" jdbcType="VARCHAR" />
+    <result column="haoma" property="haoma" jdbcType="VARCHAR" />
+    <result column="mansum" property="mansum" jdbcType="VARCHAR" />
+    <result column="tousum" property="tousum" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="county" property="county" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="zhu_name" property="zhuname" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="dianhua" property="dianhua" jdbcType="VARCHAR" />
+    <result column="chudate" property="chudate" jdbcType="VARCHAR" />
+    <result column="bumen" property="bumen" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <association property="fu_lianxi" javaType="com.example.demo.entity.Fu_lianxi">
+      <id property="fu_id" column="FU_ID" />
+      <result property="fu_name" column="FU_NAME" />
+      <result column="fu_phone" property="fu_phone" jdbcType="VARCHAR" />
+      <result column="fu_dianhua" property="fu_dianhua" jdbcType="VARCHAR" />
+      <result column="fu_chudate" property="fu_chudate" jdbcType="VARCHAR" />
+      <result column="fu_bumen" property="fu_bumen" jdbcType="VARCHAR" />
+      <result column="fu_job" property="fu_job" jdbcType="VARCHAR" />
+      <result column="fu_email" property="fu_email" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name,huhao, xingji, yixiang, leixing,hangye, xingzi, haoma, mansum, tousum, province, city,
+    county, address, zhu_name, phone, dianhua, chudate, bumen, job, email
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap"  >
+    select * from zhun_ke_hu_zi_liao z left join fu_lianxi f on z.id=f.fu_id
+    where z.id=#{id}
+
+  </select>
+  <select id="selectById2" resultType="com.example.demo.entity.Bendi"  >
+    select * from Bendi where id=#{id}
+
+  </select>
+  <select id="selectById3" resultType="com.example.demo.entity.Bendi"  >
+    select * from Bendi where id=#{id}
+
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select * from zhun_ke_hu_zi_liao z left join fu_lianxi f on z.id=f.fu_id
+    <where>
+      <if test="name !=null and name!=''">
+        name like concat('%',#{name},'%')
+      </if>
+    </where>
+  </select>
+  <select id="selectListk" resultType="com.example.demo.entity.Bendi">
+    select * from Bendi
+    <where>
+      <if test="name !=null and name!=''">
+        name like concat('%',#{name},'%')
+      </if>
+    </where>
+  </select>
+  <select id="selectListk6" resultType="com.example.demo.entity.Bendi">
+    select * from Bendi
+
+  </select>
+  <select id="selectList1" resultMap="BaseResultMap">
+    select * from zhun_ke_hu_zi_liao z left join fu_lianxi f on z.id=f.fu_id
+    <where>
+      <if test="name !=null and name!=''">
+        name like concat('%',#{name},'%')
+      </if>
+    </where>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="int" >
+    delete from Bendi
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Zhun_ke_hu_zi_liao" >
+    insert into zhun_ke_hu_zi_liao (id, name,huhao, xingji,
+      yixiang, leixing,hangye, xingzi,
+      haoma, mansum, tousum, 
+      province, city, county, 
+      address, zhu_name, phone, 
+      dianhua, chudate, bumen, 
+      job, email)
+    values (#{id,jdbcType=INTEGER}, #{name},#{huhao,jdbcType=VARCHAR}, #{xingji,jdbcType=VARCHAR},
+      #{yixiang,jdbcType=VARCHAR}, #{leixing,jdbcType=VARCHAR}, #{hangye,jdbcType=VARCHAR},#{xingzi,jdbcType=VARCHAR},
+      #{haoma,jdbcType=VARCHAR}, #{mansum,jdbcType=VARCHAR}, #{tousum,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{zhuName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{dianhua,jdbcType=VARCHAR}, #{chudate,jdbcType=VARCHAR}, #{bumen,jdbcType=VARCHAR}, 
+      #{job,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
+  </insert>
+  <insert id="addZhun" parameterType="com.example.demo.entity.Bendi" >
+    insert into Bendi (id, name,
+      yixiang, leixing, hangye,xingzi,
+      haoma, mansum, tousum,
+      province, city, county,
+      address, zhuname, phone,
+      dianhua, chudate, bumen,
+      job, email)
+    values (#{id}, #{name},
+      #{yixiang}, #{leixing}, #{hangye}, #{xingzi}, #{haoma}, #{mansum}, #{tousum},
+      #{province}, #{city}, #{county},
+      #{address}, #{zhuname}, #{phone},#{dianhua}, #{chudate}, #{bumen},#{job}, #{email})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Zhun_ke_hu_zi_liao" >
+    insert into zhun_ke_hu_zi_liao
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="huhao != null" >
+        huhao,
+      </if>
+      <if test="xingji != null" >
+        xingji,
+      </if>
+      <if test="yixiang != null" >
+        yixiang,
+      </if>
+      <if test="leixing != null" >
+        leixing,
+      </if>
+      <if test="hangye != null" >
+        hangye,
+      </if>
+      <if test="xingzi != null" >
+        xingzi,
+      </if>
+      <if test="haoma != null" >
+        haoma,
+      </if>
+      <if test="mansum != null" >
+        mansum,
+      </if>
+      <if test="tousum != null" >
+        tousum,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="county != null" >
+        county,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="zhuName != null" >
+        zhu_name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="dianhua != null" >
+        dianhua,
+      </if>
+      <if test="chudate != null" >
+        chudate,
+      </if>
+      <if test="bumen != null" >
+        bumen,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="huhao != null" >
+        #{huhao,jdbcType=VARCHAR},
+      </if>
+      <if test="xingji != null" >
+        #{xingji,jdbcType=VARCHAR},
+      </if>
+      <if test="yixiang != null" >
+        #{yixiang,jdbcType=VARCHAR},
+      </if>
+      <if test="leixing != null" >
+        #{leixing,jdbcType=VARCHAR},
+      </if>
+      <if test="hangye != null" >
+        #{hangye,jdbcType=VARCHAR},
+      </if>
+      <if test="xingzi != null" >
+        #{xingzi,jdbcType=VARCHAR},
+      </if>
+      <if test="haoma != null" >
+        #{haoma,jdbcType=VARCHAR},
+      </if>
+      <if test="mansum != null" >
+        #{mansum,jdbcType=VARCHAR},
+      </if>
+      <if test="tousum != null" >
+        #{tousum,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuName != null" >
+        #{zhuName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="dianhua != null" >
+        #{dianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="chudate != null" >
+        #{chudate,jdbcType=VARCHAR},
+      </if>
+      <if test="bumen != null" >
+        #{bumen,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Zhun_ke_hu_zi_liao" >
+    update zhun_ke_hu_zi_liao
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="huhao != null" >
+        huhao = #{huhao,jdbcType=VARCHAR},
+      </if>
+      <if test="xingji != null" >
+        xingji = #{xingji,jdbcType=VARCHAR},
+      </if>
+      <if test="yixiang != null" >
+        yixiang = #{yixiang,jdbcType=VARCHAR},
+      </if>
+      <if test="leixing != null" >
+        leixing = #{leixing,jdbcType=VARCHAR},
+      </if>
+      <if test="hangye != null" >
+        hangye = #{hangye,jdbcType=VARCHAR},
+      </if>
+      <if test="xingzi != null" >
+        xingzi = #{xingzi,jdbcType=VARCHAR},
+      </if>
+      <if test="haoma != null" >
+        haoma = #{haoma,jdbcType=VARCHAR},
+      </if>
+      <if test="mansum != null" >
+        mansum = #{mansum,jdbcType=VARCHAR},
+      </if>
+      <if test="tousum != null" >
+        tousum = #{tousum,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuName != null" >
+        zhu_name = #{zhuName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="dianhua != null" >
+        dianhua = #{dianhua,jdbcType=VARCHAR},
+      </if>
+      <if test="chudate != null" >
+        chudate = #{chudate,jdbcType=VARCHAR},
+      </if>
+      <if test="bumen != null" >
+        bumen = #{bumen,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateZhun" parameterType="com.example.demo.entity.Bendi" >
+    update Bendi
+    set name = #{name},
+      yixiang = #{yixiang},
+      leixing = #{leixing},
+       hangye = #{hangye},
+      xingzi = #{xingzi},
+      haoma = #{haoma},
+      mansum = #{mansum},
+      tousum = #{tousum},
+      province = #{province},
+      city = #{city},
+      county = #{county},
+      address = #{address},
+      zhuname = #{zhuname},
+      phone = #{phone},
+      dianhua = #{dianhua},
+      chudate = #{chudate},
+      bumen = #{bumen},
+      job = #{job},
+      email = #{email}
+    where id = #{id}
+  </update>
+  <delete id="deletepi" parameterType="arraylist">
+    delete from zhun_ke_hu_zi_liao where id in
+    <foreach collection="array" item="item" index="index" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,81 @@
+server:
+  port: 8082
+mybatis:
+  typeAliasesPackage: com.example.demo.entity
+  mapperLocations: classpath:mapper/*.xml
+
+spring:
+  mvc:
+    static-locations: /static/**
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/yidong
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    # Redis默认情况下有16个分片，这里配置具体使用的分片。默认是索引为0的分片
+    database: 1
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    # 连接超时时间（毫秒）
+    timeout: 2000s
+    jedis:
+      pool:
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: 60s
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 10
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 10
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-activ: 8
+#  rabbitmq:
+#    virtual-host: /
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+
+    # 配置文件中添加 lettuce.pool 相关配置，则会使用到lettuce连接池
+#    lettuce:
+#      pool:
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+#        max-wait: 60s
+#        # 连接池中的最大空闲连接 默认 8
+#        max-idle: 10
+#        # 连接池中的最小空闲连接 默认 0
+#        min-idle: 10
+#        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+#        max-activ: 8
+  #logging:
+#  level:
+#    mapper: debug
+#    com.example.demo.mapper: debug #打印sql
+    #logback配置
+#logging:
+#  config: classpath:log4j2.yml
+
+#  freemarker:
+#    allow-request-override: false
+#    cache: true
+#    check-template-location: true
+#    charset: UTF-8
+#    suffix: .ftl
+#    templateEncoding: UTF-8
+#    templateLoaderPath: classpath:/templates
+#    content-type: text/html
+#    expose-request-attributes: true
+#    expose-session-attributes: false
+#    expose-spring-macro-helpers: false
+
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+

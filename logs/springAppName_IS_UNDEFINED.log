@@ -1,0 +1,14 @@
+2021-08-20 20:15:55.160 INFO  main [com.example.demo.DemoApplication:?]-Starting DemoApplication using Java 1.8.0_151 on WIN-1UA6L7KRUM9 with PID 12736 (D:\Program Files (x86)\springboot-yidong\target\classes started by Administrator in D:\Program Files (x86)\springboot-yidong)
+2021-08-20 20:15:55.161 INFO  main [com.example.demo.DemoApplication:?]-No active profile set, falling back to default profiles: default
+2021-08-20 20:15:56.173 INFO  main [org.springframework.data.repository.config.RepositoryConfigurationDelegate:?]-Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-20 20:15:56.175 INFO  main [org.springframework.data.repository.config.RepositoryConfigurationDelegate:?]-Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-08-20 20:15:56.207 INFO  main [org.springframework.data.repository.config.RepositoryConfigurationDelegate:?]-Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2021-08-20 20:15:56.786 INFO  main [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:?]-Tomcat initialized with port(s): 8082 (http)
+2021-08-20 20:15:56.798 INFO  main [org.apache.catalina.core.StandardService:?]-Starting service [Tomcat]
+2021-08-20 20:15:56.798 INFO  main [org.apache.catalina.core.StandardEngine:?]-Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-08-20 20:15:56.898 INFO  main [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:?]-Initializing Spring embedded WebApplicationContext
+2021-08-20 20:15:56.899 INFO  main [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:?]-Root WebApplicationContext: initialization completed in 1663 ms
+2021-08-20 20:15:57.902 WARN  main [org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration:?]-Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-08-20 20:15:58.140 WARN  main [org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration:?]-Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2021-08-20 20:15:58.226 INFO  main [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:?]-Tomcat started on port(s): 8082 (http) with context path ''
+2021-08-20 20:15:58.239 INFO  main [com.example.demo.DemoApplication:?]-Started DemoApplication in 3.787 seconds (JVM running for 4.818)

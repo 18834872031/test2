@@ -1,0 +1,12 @@
+八月 06, 2021 9:26:34 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find java src paths:  [D:\Program Files (x86)\Ajax_demo\src/]
+八月 06, 2021 9:26:34 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: project type not set, try to figure out...
+八月 06, 2021 9:26:34 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: found it a GENERIC project, tell us if we are wrong.
+八月 06, 2021 9:26:34 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start find controllers in path : D:\Program Files (x86)\Ajax_demo\src/
+八月 06, 2021 9:26:34 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs start...
+八月 06, 2021 9:26:35 上午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs done !!!
